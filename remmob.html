@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Remmob - Ремонт телефонов и мобильных устройств в Москве</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,17 +12,24 @@
             box-sizing: border-box;
         }
 
+        html {
+            font-size: 16px;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Header */
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
@@ -34,14 +41,14 @@
         nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #2563eb;
             text-decoration: none;
@@ -66,6 +73,7 @@
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
@@ -87,18 +95,54 @@
             width: 100%;
         }
 
-        .mobile-menu {
+        .mobile-menu-btn {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: #333;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+        }
+
+        /* Mobile Menu */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 1rem;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            border-bottom: 1px solid #f3f4f6;
+            transition: background 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            background: #f9fafb;
+            color: #2563eb;
         }
 
         /* Hero Section */
         .hero {
-            margin-top: 80px;
+            margin-top: 70px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 6rem 2rem;
+            padding: 3rem 1.5rem;
             position: relative;
             overflow: hidden;
         }
@@ -120,49 +164,51 @@
             position: relative;
             z-index: 1;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
             align-items: center;
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
             animation: fadeInUp 0.8s ease;
+            line-height: 1.2;
         }
 
         .hero-text p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
             opacity: 0.95;
             animation: fadeInUp 0.8s ease 0.2s backwards;
         }
 
         .hero-badges {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
             flex-wrap: wrap;
             animation: fadeInUp 0.8s ease 0.4s backwards;
         }
 
         .badge {
             background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
             animation: fadeInUp 0.8s ease 0.6s backwards;
         }
 
         .btn {
-            padding: 1rem 2rem;
+            padding: 0.9rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -172,7 +218,8 @@
             gap: 0.5rem;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            min-height: 44px;
         }
 
         .btn-primary {
@@ -202,13 +249,13 @@
 
         .hero-image img {
             width: 100%;
-            border-radius: 20px;
+            border-radius: 15px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
         /* Info Cards */
         .info-section {
-            padding: 4rem 2rem;
+            padding: 3rem 1.5rem;
             background: #f9fafb;
         }
 
@@ -216,14 +263,14 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
         }
 
         .info-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 1.5rem;
+            border-radius: 12px;
             text-align: center;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s;
@@ -234,34 +281,36 @@
         }
 
         .info-card i {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #2563eb;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .info-card h3 {
             margin-bottom: 0.5rem;
             color: #1f2937;
+            font-size: 1rem;
         }
 
         .info-card p {
             color: #6b7280;
+            font-size: 0.9rem;
         }
 
         /* Services */
         .services {
-            padding: 6rem 2rem;
+            padding: 4rem 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -272,19 +321,19 @@
 
         .section-title p {
             color: #6b7280;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
         .service-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 1.5rem;
+            border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: all 0.3s;
             border: 2px solid transparent;
@@ -297,24 +346,25 @@
         }
 
         .service-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .service-icon i {
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
 
         .service-card h3 {
             margin-bottom: 1rem;
             color: #1f2937;
+            font-size: 1.2rem;
         }
 
         .service-card ul {
@@ -326,6 +376,7 @@
             padding: 0.3rem 0;
             position: relative;
             padding-left: 1.5rem;
+            font-size: 0.95rem;
         }
 
         .service-card ul li::before {
@@ -340,15 +391,15 @@
         .advantages {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 6rem 2rem;
+            padding: 4rem 1.5rem;
         }
 
         .advantages-grid {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
 
         .advantage-item {
@@ -356,40 +407,46 @@
         }
 
         .advantage-icon {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             background: rgba(255,255,255,0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .advantage-item h3 {
             margin-bottom: 0.5rem;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
+        }
+
+        .advantage-item p {
+            font-size: 0.9rem;
+            opacity: 0.95;
         }
 
         /* Reviews */
         .reviews {
-            padding: 6rem 2rem;
+            padding: 4rem 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
         .review-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 1.5rem;
+            border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
@@ -401,8 +458,8 @@
         }
 
         .review-avatar {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 50%;
             display: flex;
@@ -410,26 +467,29 @@
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .review-info h4 {
             color: #1f2937;
             margin-bottom: 0.2rem;
+            font-size: 1rem;
         }
 
         .review-stars {
             color: #fbbf24;
+            font-size: 0.9rem;
         }
 
         .review-text {
             color: #6b7280;
             line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         /* Contact Section */
         .contact {
-            padding: 6rem 2rem;
+            padding: 4rem 1.5rem;
             background: #f9fafb;
         }
 
@@ -437,14 +497,13 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
 
         .contact-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             color: #1f2937;
         }
 
@@ -452,7 +511,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             padding: 1rem;
             background: white;
             border-radius: 10px;
@@ -460,7 +519,7 @@
         }
 
         .contact-item i {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #2563eb;
             width: 40px;
             height: 40px;
@@ -469,26 +528,29 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .contact-item-content h4 {
             color: #1f2937;
             margin-bottom: 0.2rem;
+            font-size: 0.95rem;
         }
 
         .contact-item-content p {
             color: #6b7280;
+            font-size: 0.9rem;
         }
 
         .contact-map-card {
             background: white;
-            border-radius: 15px;
-            padding: 2rem;
+            border-radius: 12px;
+            padding: 1.5rem;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
         .contact-map-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 1rem;
             color: #1f2937;
         }
@@ -497,19 +559,19 @@
             display: flex;
             align-items: flex-start;
             gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 1.2rem;
             border-bottom: 1px solid #f3f4f6;
         }
 
         .map-info-item:last-of-type {
             border-bottom: none;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             padding-bottom: 0;
         }
 
         .map-info-item i {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #2563eb;
             width: 40px;
             height: 40px;
@@ -524,12 +586,12 @@
         .map-info-item-content h4 {
             color: #1f2937;
             margin-bottom: 0.3rem;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .map-info-item-content p {
             color: #6b7280;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .route-btn {
@@ -548,6 +610,7 @@
             gap: 0.5rem;
             transition: all 0.3s;
             text-decoration: none;
+            min-height: 44px;
         }
 
         .route-btn:hover {
@@ -559,17 +622,17 @@
         .cta {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 4rem 2rem;
+            padding: 3rem 1.5rem;
             text-align: center;
         }
 
         .cta h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
 
         .cta p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 2rem;
             opacity: 0.95;
         }
@@ -578,21 +641,22 @@
         footer {
             background: #1f2937;
             color: white;
-            padding: 3rem 2rem 1rem;
+            padding: 2rem 1.5rem 1rem;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
             margin-bottom: 2rem;
         }
 
         .footer-section h3 {
             margin-bottom: 1rem;
             color: #fbbf24;
+            font-size: 1.1rem;
         }
 
         .footer-section ul {
@@ -601,6 +665,7 @@
 
         .footer-section ul li {
             margin-bottom: 0.5rem;
+            font-size: 0.9rem;
         }
 
         .footer-section a {
@@ -615,9 +680,10 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 1.5rem;
             border-top: 1px solid #374151;
             color: #9ca3af;
+            font-size: 0.9rem;
         }
 
         /* Animations */
@@ -643,35 +709,101 @@
             }
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+        /* Tablet */
+        @media (min-width: 768px) {
+            .hero {
+                padding: 4rem 2rem;
             }
 
             .hero-text h1 {
                 font-size: 2.5rem;
             }
 
+            .info-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .advantages-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .contact-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
-            .hero-badges {
-                justify-content: center;
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 6rem 2rem;
             }
 
-            .hero-buttons {
-                justify-content: center;
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-info h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta h2 {
+                font-size: 1.8rem;
             }
         }
 
@@ -685,6 +817,21 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Touch improvements */
+        @media (hover: none) {
+            .btn:active {
+                transform: scale(0.98);
+            }
+
+            .service-card:active {
+                border-color: #2563eb;
+            }
+
+            .info-card:active {
+                transform: translateY(-2px);
+            }
         }
     </style>
 </head>
@@ -702,10 +849,16 @@
                 <li><a href="#reviews">Отзывы</a></li>
                 <li><a href="#contact">Контакты</a></li>
             </ul>
-            <div class="mobile-menu">
+            <button class="mobile-menu-btn" aria-label="Меню">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
         </nav>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#services">Услуги</a>
+            <a href="#advantages">Преимущества</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contact">Контакты</a>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -742,22 +895,22 @@
             <div class="info-card fade-in">
                 <i class="fas fa-star"></i>
                 <h3>Рейтинг 5.0</h3>
-                <p>132 положительных отзыва от довольных клиентов</p>
+                <p>132 положительных отзыва</p>
             </div>
             <div class="info-card fade-in">
                 <i class="fas fa-clock"></i>
-                <h3>Работаем до 20:00</h3>
-                <p>Ежедневно без выходных и праздников</p>
+                <h3>До 20:00</h3>
+                <p>Ежедневно без выходных</p>
             </div>
             <div class="info-card fade-in">
                 <i class="fas fa-award"></i>
-                <h3>Хорошее место 2026</h3>
-                <p>Признаны лучшим сервисным центром</p>
+                <h3>Лучший 2026</h3>
+                <p>Признаны лучшим центром</p>
             </div>
             <div class="info-card fade-in">
                 <i class="fas fa-shield-alt"></i>
-                <h3>Гарантия качества</h3>
-                <p>Официальная гарантия на все работы</p>
+                <h3>Гарантия</h3>
+                <p>Официальная гарантия</p>
             </div>
         </div>
     </section>
@@ -832,28 +985,28 @@
                     <i class="fas fa-bolt"></i>
                 </div>
                 <h3>Быстрый ремонт</h3>
-                <p>Большинство ремонтов выполняем за 30-60 минут</p>
+                <p>30-60 минут</p>
             </div>
             <div class="advantage-item fade-in">
                 <div class="advantage-icon">
                     <i class="fas fa-check-circle"></i>
                 </div>
                 <h3>Оригинальные запчасти</h3>
-                <p>Используем только качественные комплектующие</p>
+                <p>Качественные комплектующие</p>
             </div>
             <div class="advantage-item fade-in">
                 <div class="advantage-icon">
                     <i class="fas fa-user-tie"></i>
                 </div>
                 <h3>Опытные мастера</h3>
-                <p>Более 10 лет опыта в ремонте электроники</p>
+                <p>Более 10 лет опыта</p>
             </div>
             <div class="advantage-item fade-in">
                 <div class="advantage-icon">
                     <i class="fas fa-hand-holding-usd"></i>
                 </div>
                 <h3>Честные цены</h3>
-                <p>Прозрачное ценообразование без скрытых платежей</p>
+                <p>Без скрытых платежей</p>
             </div>
         </div>
     </section>
@@ -949,7 +1102,7 @@
                         <p>@remmob</p>
                     </div>
                 </div>
-                <a href="https://t.me/remmob" class="btn btn-primary" style="margin-top: 1rem;">
+                <a href="https://t.me/remmob" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;">
                     <i class="fab fa-telegram"></i>
                     Написать в Telegram
                 </a>
@@ -1055,6 +1208,8 @@
                         block: 'start'
                     });
                 }
+                // Close mobile menu
+                document.getElementById('mobileNav').classList.remove('active');
             });
         });
 
@@ -1069,19 +1224,29 @@
         });
 
         // Mobile menu toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.getElementById('mobileNav');
 
-        mobileMenu.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '100%';
-            navLinks.style.left = '0';
-            navLinks.style.right = '0';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.background = 'white';
-            navLinks.style.padding = '1rem';
-            navLinks.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('header')) {
+                mobileNav.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
     </script>
 </body>
