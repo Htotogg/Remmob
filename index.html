@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remmob - Ремонт телефонов и мобильных устройств в Москве</title>
+    <meta name="description" content="Сервисный центр Remmob в Москве: ремонт смартфонов, ноутбуков и планшетов. Рейтинг 5.0, гарантия, работаем ежедневно до 20:00 рядом с метро Павелецкая. Бесплатная диагностика.">
+    <meta name="keywords" content="ремонт телефонов Москва, ремонт смартфонов, ремонт ноутбуков, ремонт планшетов, сервисный центр, Павелецкая, Remmob">
+    <link rel="canonical" href="https://remmob.ru/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Remmob — Ремонт телефонов и мобильных устройств в Москве">
+    <meta property="og:description" content="Ремонт смартфонов, ноутбуков и планшетов быстро, качественно, с гарантией. Ежедневно до 20:00 рядом с метро Павелецкая.">
+    <meta property="og:url" content="https://remmob.ru/">
+    <meta property="og:image" content="assets/hero.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232563eb'/%3E%3Ctext x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='Arial'%3ER%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://t.me">
+    <link rel="preconnect" href="https://yandex.ru">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: #f59e0b;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2563eb;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+        }
+
+        /* Mobile Menu */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 1rem;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            border-bottom: 1px solid #f3f4f6;
+            transition: background 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            background: #f9fafb;
+            color: #2563eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/hero.png') center/cover;
+            opacity: 0.15;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            min-height: 44px;
+        }
+
+        .btn-primary {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2563eb;
+        }
+
+        .btn-secondary:hover {
+            background: #f3f4f6;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            animation: fadeInRight 1s ease;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        /* Info Cards */
+        .info-section {
+            padding: 3rem 1.5rem;
+            background: #f9fafb;
+        }
+
+        .info-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: #2563eb;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-card h3 {
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+            font-size: 1rem;
+        }
+
+        .info-card p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Services */
+        .services {
+            padding: 4rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-title p {
+            color: #6b7280;
+            font-size: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: #2563eb;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .service-icon i {
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: #1f2937;
+            font-size: 1.2rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            color: #6b7280;
+        }
+
+        .service-card ul li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .service-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        /* Advantages */
+        .advantages {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 1.5rem;
+        }
+
+        .advantages-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .advantage-item {
+            text-align: center;
+        }
+
+        .advantage-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .advantage-item h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .advantage-item p {
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+
+        /* Reviews */
+        .reviews {
+            padding: 4rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .review-info h4 {
+            color: #1f2937;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .review-stars {
+            color: #fbbf24;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 1.5rem;
+            background: #f9fafb;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .contact-item i {
+            font-size: 1.3rem;
+            color: #2563eb;
+            width: 40px;
+            height: 40px;
+            background: #eff6ff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-item-content h4 {
+            color: #1f2937;
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-item-content p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .contact-map-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .contact-map-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .map-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .map-info-item:last-of-type {
+            border-bottom: none;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0;
+        }
+
+        .map-info-item i {
+            font-size: 1.2rem;
+            color: #2563eb;
+            width: 40px;
+            height: 40px;
+            background: #eff6ff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .map-info-item-content h4 {
+            color: #1f2937;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .map-info-item-content p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .route-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            min-height: 44px;
+        }
+
+        .route-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 2rem 1.5rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #fbbf24;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .hero {
+                padding: 4rem 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .info-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .advantages-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 6rem 2rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-info h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible,
+        .no-js .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .fade-in {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        /* Touch improvements */
+        @media (hover: none) {
+            .btn:active {
+                transform: scale(0.98);
+            }
+
+            .service-card:active {
+                border-color: #2563eb;
+            }
+
+            .info-card:active {
+                transform: translateY(-2px);
+            }
+        }
+    </style>
+</head>
+<body class="no-js">
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#top" class="logo">
+                <i class="fas fa-mobile-alt"></i>
+                Remmob
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#advantages">Преимущества</a></li>
+                <li><a href="#reviews">Отзывы</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileNav">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#services">Услуги</a>
+            <a href="#advantages">Преимущества</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contact">Контакты</a>
+        </div>
+    </header>
+
+    <span id="top"></span>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Профессиональный ремонт мобильных устройств</h1>
+                <p>Ремонт телефонов, ноутбуков и планшетов в Москве. Быстро, качественно, с гарантией.</p>
+                <div class="hero-badges">
+                    <span class="badge"><i class="fas fa-star"></i> Рейтинг 5.0</span>
+                    <span class="badge"><i class="fas fa-award"></i> Хорошее место 2026</span>
+                    <span class="badge"><i class="fas fa-clock"></i> Открыто до 20:00</span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="https://t.me/remmob" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <i class="fab fa-telegram"></i>
+                        Написать в Telegram
+                    </a>
+                    <a href="https://yandex.ru/maps/213/moscow/?mode=routes&rtext=~Москва%2C%20ул.%20Новокузнецкая&ll=37.635680%2C55.732149&z=21" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                        <i class="fas fa-route"></i>
+                        Построить маршрут
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/hero.png" alt="Remmob сервисный центр" width="1024" height="1024" fetchpriority="high">
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Cards -->
+    <section class="info-section">
+        <div class="info-grid">
+            <div class="info-card fade-in">
+                <i class="fas fa-star"></i>
+                <h3>Рейтинг 5.0</h3>
+                <p>132 положительных отзыва</p>
+            </div>
+            <div class="info-card fade-in">
+                <i class="fas fa-clock"></i>
+                <h3>До 20:00</h3>
+                <p>Ежедневно без выходных</p>
+            </div>
+            <div class="info-card fade-in">
+                <i class="fas fa-award"></i>
+                <h3>Лучший 2026</h3>
+                <p>Признаны лучшим центром</p>
+            </div>
+            <div class="info-card fade-in">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Гарантия</h3>
+                <p>Официальная гарантия</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="section-title fade-in">
+            <h2>Наши услуги</h2>
+            <p>Полный спектр услуг по ремонту мобильных устройств</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Ремонт смартфонов</h3>
+                <ul>
+                    <li>Замена экрана и дисплея</li>
+                    <li>Замена батареи</li>
+                    <li>Ремонт после воды</li>
+                    <li>Восстановление данных</li>
+                    <li>Замена разъёмов</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <h3>Ремонт ноутбуков</h3>
+                <ul>
+                    <li>Замена матрицы</li>
+                    <li>Чистка от пыли</li>
+                    <li>Замена клавиатуры</li>
+                    <li>Ремонт материнской платы</li>
+                    <li>Апгрейд компонентов</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-tablet-alt"></i>
+                </div>
+                <h3>Ремонт планшетов</h3>
+                <ul>
+                    <li>Замена тачскрина</li>
+                    <li>Ремонт кнопок</li>
+                    <li>Замена аккумулятора</li>
+                    <li>Восстановление ПО</li>
+                    <li>Ремонт камер</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h3>Товары и аксессуары</h3>
+                <ul>
+                    <li>Чехлы и защитные стёкла</li>
+                    <li>Зарядные устройства</li>
+                    <li>Кабели и переходники</li>
+                    <li>Наушники и гарнитуры</li>
+                    <li>Держатели и подставки</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages -->
+    <section class="advantages" id="advantages">
+        <div class="advantages-grid">
+            <div class="advantage-item fade-in">
+                <div class="advantage-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Быстрый ремонт</h3>
+                <p>30-60 минут</p>
+            </div>
+            <div class="advantage-item fade-in">
+                <div class="advantage-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Оригинальные запчасти</h3>
+                <p>Качественные комплектующие</p>
+            </div>
+            <div class="advantage-item fade-in">
+                <div class="advantage-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>Опытные мастера</h3>
+                <p>Более 10 лет опыта</p>
+            </div>
+            <div class="advantage-item fade-in">
+                <div class="advantage-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3>Честные цены</h3>
+                <p>Без скрытых платежей</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews" id="reviews">
+        <div class="section-title fade-in">
+            <h2>Отзывы клиентов</h2>
+            <p>Что говорят о нас наши клиенты</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card fade-in">
+                <div class="review-header">
+                    <div class="review-avatar">А</div>
+                    <div class="review-info">
+                        <h4>Александр</h4>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text">Отличный сервис! Починили iPhone за 40 минут, всё работает как новое. Рекомендую!</p>
+            </div>
+            <div class="review-card fade-in">
+                <div class="review-header">
+                    <div class="review-avatar">М</div>
+                    <div class="review-info">
+                        <h4>Мария</h4>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text">Заменили экран на Samsung Galaxy. Качество отличное, цена адекватная. Спасибо!</p>
+            </div>
+            <div class="review-card fade-in">
+                <div class="review-header">
+                    <div class="review-avatar">Д</div>
+                    <div class="review-info">
+                        <h4>Дмитрий</h4>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text">Профессиональный подход, быстрая диагностика. Ноутбук работает как новый!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h2>Контакты</h2>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-item-content">
+                        <h4>Адрес</h4>
+                        <p>Москва, ул. Новокузнецкая</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="contact-item-content">
+                        <h4>Часы работы</h4>
+                        <p>Ежедневно до 20:00</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-item-content">
+                        <h4>Телефон</h4>
+                        <p><a href="tel:+74951234567" style="color: #2563eb; text-decoration: none;">+7 (495) 123-45-67</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-telegram"></i>
+                    <div class="contact-item-content">
+                        <h4>Telegram</h4>
+                        <p>@remmob</p>
+                    </div>
+                </div>
+                <a href="https://t.me/remmob" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;">
+                    <i class="fab fa-telegram"></i>
+                    Написать в Telegram
+                </a>
+            </div>
+            <div class="contact-map-card fade-in">
+                <h3><i class="fas fa-map-marked-alt" style="color: #667eea; margin-right: 0.5rem;"></i> Как нас найти</h3>
+                <div class="map-info-item">
+                    <i class="fas fa-subway"></i>
+                    <div class="map-info-item-content">
+                        <h4>Метро</h4>
+                        <p>Павелецкая (кольцевая и радиальная), 5 минут пешком</p>
+                    </div>
+                </div>
+                <div class="map-info-item">
+                    <i class="fas fa-building"></i>
+                    <div class="map-info-item-content">
+                        <h4>Ориентир</h4>
+                        <p>Рядом с Павелецким вокзалом, ул. Новокузнецкая</p>
+                    </div>
+                </div>
+                <div class="map-info-item">
+                    <i class="fas fa-parking"></i>
+                    <div class="map-info-item-content">
+                        <h4>Парковка</h4>
+                        <p>Бесплатная парковка во дворе здания</p>
+                    </div>
+                </div>
+                <a href="https://yandex.ru/maps/213/moscow/?mode=routes&rtext=~Москва%2C%20ул.%20Новокузнецкая&ll=37.635680%2C55.732149&z=21" target="_blank" rel="noopener noreferrer" class="route-btn">
+                    <i class="fas fa-route"></i>
+                    Построить маршрут в Яндекс.Картах
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Нужен ремонт?</h2>
+        <p>Свяжитесь с нами прямо сейчас и получите бесплатную консультацию!</p>
+        <a href="https://t.me/remmob" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fab fa-telegram"></i>
+            Написать в Telegram
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Remmob</h3>
+                <p>Профессиональный ремонт мобильных устройств в Москве с 2014 года.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Услуги</h3>
+                <ul>
+                    <li><a href="#services">Ремонт смартфонов</a></li>
+                    <li><a href="#services">Ремонт ноутбуков</a></li>
+                    <li><a href="#services">Ремонт планшетов</a></li>
+                    <li><a href="#services">Аксессуары</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Новокузнецкая</li>
+                    <li><i class="fas fa-clock"></i> Ежедневно до 20:00</li>
+                    <li><i class="fab fa-telegram"></i> @remmob</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Remmob. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Remmob",
+      "description": "Сервисный центр по ремонту смартфонов, ноутбуков и планшетов в Москве",
+      "url": "https://remmob.ru/",
+      "image": "https://remmob.ru/assets/hero.png",
+      "telephone": "+7 (495) 123-45-67",
+      "priceRange": "₽₽",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Новокузнецкая",
+        "addressLocality": "Москва",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 55.732168,
+        "longitude": 37.635446
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "132"
+      }
+    }
+    </script>
+
+    <script>
+        // Remove no-js fallback class (JS is available)
+        document.body.classList.remove('no-js');
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll (offset handled by CSS scroll-padding-top)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu
+                closeMobileMenu();
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 30px rgba(0,0,0,0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        function closeMobileMenu() {
+            mobileNav.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            const isOpen = mobileNav.classList.contains('active');
+            mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+            const icon = mobileMenuBtn.querySelector('i');
+            if (isOpen) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking outside or pressing Escape
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('header')) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
